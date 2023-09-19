@@ -1,21 +1,3 @@
-// /** @type {import('next').NextConfig} */
-
-// const nextConfig = {
-// 	reactStrictMode: true,
-// 	swcMinify: true,
-// 	images: {
-// 		formats: ['image/avif', 'image/webp'],
-// 	},
-// 	i18n: {
-// 		defaultLocale: 'en',
-// 		locales: ['el', 'ru', 'en'],
-// 	},
-
-// 	compress: true,
-// };
-
-// module.exports = nextConfig;
-
 // @ts-check
 
 /** @type {import('next').NextConfig} **/
