@@ -22,23 +22,23 @@ const Catalogue = () => {
 	const catalogueList: ICatalogueList[] = [
 		{
 			name: 'crustaceans',
-			img: '/crustaceans.jpg',
+			img: '/fishmania/crustaceans.jpg',
 		},
 		{
 			name: 'shellfish',
-			img: '/shellfish.jpg',
+			img: '/fishmania/shellfish.jpg',
 		},
 		{
 			name: 'cephalopods',
-			img: '/cephalopods.jpg',
+			img: '/fishmania/cephalopods.jpg',
 		},
 		{
 			name: 'sea water fish',
-			img: '/seafish.jpg',
+			img: '/fishmania/seafish.jpg',
 		},
 		{
 			name: 'fresh water fish',
-			img: '/freshfish.jpg',
+			img: '/fishmania/freshfish.jpg',
 		},
 	];
 

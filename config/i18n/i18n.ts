@@ -14,7 +14,7 @@ i18n.use(Backend)
 		},
 		
 		backend: {
-			loadPath: '/locales/{{lng}}/{{ns}}.json',
+			loadPath: '/fishmania/locales/{{lng}}/{{ns}}.json',
 		},
 	});
 

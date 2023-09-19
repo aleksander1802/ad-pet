@@ -11,7 +11,7 @@ const ProductsBtn = () => {
 				className="relative w-[185px] h-[185px] flex justify-center items-center bg-circleStar bg-cover bg-center bg-no-repeat group z-50 "
 			>
 				<Image
-					src={'/rounded-text.png'}
+					src={'/fishmania/rounded-text.png'}
 					width={261}
 					height={248}
 					alt="works"

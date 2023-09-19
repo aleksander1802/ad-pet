@@ -36,7 +36,7 @@ const LangSwitcher = memo(() => {
 			<button onClick={toggleLanguage}>
 				{currentLanguage === 'el' && (
 					<Image
-						src={'/greece.png'}
+						src={'/fishmania/greece.png'}
 						alt="el"
 						width={width}
 						height={height}
@@ -44,7 +44,7 @@ const LangSwitcher = memo(() => {
 				)}
 				{currentLanguage === 'ru' && (
 					<Image
-						src={'/russia.png'}
+						src={'/fishmania/russia.png'}
 						alt="ru"
 						width={width}
 						height={height}
@@ -52,7 +52,7 @@ const LangSwitcher = memo(() => {
 				)}
 				{currentLanguage === 'en' && (
 					<Image
-						src={'/united-kingdom.png'}
+						src={'/fishmania/united-kingdom.png'}
 						alt="en"
 						width={width}
 						height={height}
