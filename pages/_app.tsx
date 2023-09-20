@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { AnimatePresence, motion } from 'framer-motion';
 import '../styles/globals.css';
 import Transition from '@/components/Transition';
-import '/fishmania/config/i18n/i18n';
+import '@/config/i18n/i18n';
 
 function MyApp(props: AppProps) {
 	const { Component, pageProps } = props;
