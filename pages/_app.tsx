@@ -5,12 +5,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import '../styles/globals.css';
 import Transition from '@/components/Transition';
 import '/config/i18n/i18n';
-import i18next from 'i18next';
-
-i18next.init({
-	lng: 'en',
-	fallbackLng: 'en',
-});
 
 function MyApp(props: AppProps) {
 	const { Component, pageProps } = props;
