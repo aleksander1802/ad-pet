@@ -7,7 +7,7 @@ const nextConfig = {
 	 *
 	 * @see https://nextjs.org/docs/pages/building-your-application/deploying/static-exports
 	 */
-	// output: 'export',
+	output: 'export',
 
 	/**
 	 * Set base path. This is usually the slug of your repository.
@@ -25,10 +25,7 @@ const nextConfig = {
 	images: {
 		unoptimized: true,
 	},
-	i18n: {
-		defaultLocale: 'el',
-		locales: ['el', 'ru', 'en'],
-	},
+	
 };
 
 module.exports = nextConfig;
