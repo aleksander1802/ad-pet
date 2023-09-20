@@ -5,7 +5,7 @@ import Image from 'next/image';
 const LangSwitcher = memo(() => {
 	const { i18n } = useTranslation();
 
-	const defaultLang = 'el';
+	const defaultLang = 'en';
 	const [currentLanguage, setCurrentLanguage] = useState(defaultLang);
 
 	const languages = ['el', 'ru', 'en'];

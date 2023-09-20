@@ -8,7 +8,7 @@ import '/config/i18n/i18n';
 import i18next from 'i18next';
 
 i18next.init({
-	lng: 'el',
+	lng: 'en',
 });
 
 function MyApp(props: AppProps) {
