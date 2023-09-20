@@ -25,6 +25,10 @@ const nextConfig = {
 	images: {
 		unoptimized: true,
 	},
+	i18n: {
+		defaultLocale: 'el',
+		locales: ['el', 'ru', 'en'],
+	},
 };
 
 module.exports = nextConfig;

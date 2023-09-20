@@ -4,7 +4,9 @@ import { useRouter } from 'next/router';
 import { AnimatePresence, motion } from 'framer-motion';
 import '../styles/globals.css';
 import Transition from '@/components/Transition';
-import '@/config/i18n/i18n';
+
+import { appWithI18Next } from 'ni18n';
+import { ni18nConfig } from '../ni18n.config';
 
 function MyApp(props: AppProps) {
 	const { Component, pageProps } = props;
@@ -25,4 +27,4 @@ function MyApp(props: AppProps) {
 	);
 }
 
-export default MyApp;
+export default appWithI18Next(MyApp, ni18nConfig);

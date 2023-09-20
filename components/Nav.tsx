@@ -9,7 +9,7 @@ import { CiDeliveryTruck } from 'react-icons/ci';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 export const navData = [
 	{ name: 'Home', path: '/', icon: <HiHome /> },
@@ -38,13 +38,13 @@ const Nav = () => {
 	const pathname = router.pathname;
 
 	const initial = 1920;
-	const minWidth = 1199;
+	const minWidth = 1200;
 	const [windowWidth, setWindowWidth] = useState<number>(initial);
 
 	useEffect(() => {
 		const handleResize = () => {
-			const screenHeight = window.screen.width;
-			setWindowWidth(screenHeight);
+			const screenWidth = window.screen.width;
+			setWindowWidth(screenWidth);
 		};
 
 		window.addEventListener('resize', handleResize);
@@ -66,15 +66,11 @@ const Nav = () => {
 								link.path === pathname && 'text-accent'
 							} relative flex items-center group hover:text-accent transition-all duration-300 font-semibold`}
 							href={link.path}
+							passHref
 							key={index}
+							locale={false}
 						>
-							<>
-								{windowWidth > minWidth ? (
-									<span>{t(link.name)}</span>
-								) : (
-									link.icon
-								)}
-							</>
+							{windowWidth > minWidth ? t(link.name) : link.icon}
 						</Link>
 					);
 				})}

@@ -5,7 +5,7 @@ import Image from 'next/image';
 const LangSwitcher = memo(() => {
 	const { i18n } = useTranslation();
 
-	const defaultLang = 'en';
+	const defaultLang = 'el';
 	const [currentLanguage, setCurrentLanguage] = useState(defaultLang);
 
 	const languages = ['el', 'ru', 'en'];
@@ -32,34 +32,35 @@ const LangSwitcher = memo(() => {
 	};
 
 	return (
-		<div className="h-10 w-10">
-			<button onClick={toggleLanguage}>
-				{currentLanguage === 'el' && (
-					<Image
-						src={'/fishmania/greece.png'}
-						alt="el"
-						width={width}
-						height={height}
-					/>
-				)}
-				{currentLanguage === 'ru' && (
-					<Image
-						src={'/fishmania/russia.png'}
-						alt="ru"
-						width={width}
-						height={height}
-					/>
-				)}
-				{currentLanguage === 'en' && (
-					<Image
-						src={'/fishmania/united-kingdom.png'}
-						alt="en"
-						width={width}
-						height={height}
-					/>
-				)}
-			</button>
-		</div>
+		<button
+			className="h-10 w-10"
+			onClick={toggleLanguage}
+		>
+			{currentLanguage === 'el' && (
+				<Image
+					src={'/fishmania/greece.png'}
+					alt="el"
+					width={width}
+					height={height}
+				/>
+			)}
+			{currentLanguage === 'ru' && (
+				<Image
+					src={'/fishmania/russia.png'}
+					alt="ru"
+					width={width}
+					height={height}
+				/>
+			)}
+			{currentLanguage === 'en' && (
+				<Image
+					src={'/fishmania/united-kingdom.png'}
+					alt="en"
+					width={width}
+					height={height}
+				/>
+			)}
+		</button>
 	);
 });
 
