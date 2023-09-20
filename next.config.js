@@ -7,6 +7,7 @@ const nextConfig = {
 	 *
 	 * @see https://nextjs.org/docs/pages/building-your-application/deploying/static-exports
 	 */
+
 	output: 'export',
 
 	/**
@@ -24,11 +25,6 @@ const nextConfig = {
 	 */
 	images: {
 		unoptimized: true,
-	},
-	i18n: {
-		localeDetection: false,
-		defaultLocale: 'el',
-		locales: ['el', 'ru', 'en'],
 	},
 };
 
