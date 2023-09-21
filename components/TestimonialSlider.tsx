@@ -33,16 +33,13 @@ const TestimonialSlider = () => {
 	return (
 		<Swiper
 			navigation
-			pagination={{
-				clickable: true,
-			}}
-			modules={[Navigation, Pagination]}
-			className="max-sm:min-h-[550px] h-[400px] "
+			modules={[Navigation]}
+			className="max-sm:min-h-[500px] h-[400px] "
 		>
 			{testimonialData.map((item, index) => {
 				return (
 					<SwiperSlide key={index}>
-						<div className="flex flex-col items-center md:flex-row gap-x-8 h-full px-16 ">
+						<div className="flex flex-col items-center md:flex-row gap-x-8 max-sm:gap-y-4 h-full px-16 ">
 							<div className="w-full max-w-[300px] flex flex-col xl:justify-center items-center relative  mx-auto xl:mx-0">
 								<div className="flex flex-col justify-center text-center">
 									<div className="flex h-[100px] w-[100px] mb-2 mx-auto rounded-full overflow-hidden">
@@ -65,7 +62,7 @@ const TestimonialSlider = () => {
 								</div>
 							</div>
 
-							<div className="flex-1 flex flex-col justify-center before:w-[1px] xl:before:bg-white/20 xl:before:absolute xl:before:left-0 xl:before:h-[200px] relative xl:pl-20">
+							<div className="flex-1 flex flex-col justify-center before:w-[1px] xl:before:bg-white/20 xl:before:absolute xl:before:left-0 xl:before:h-[200px] relative xl:pl-20 max-sm:justify-start max-h-max">
 								<div className="mb-4">
 									<FaQuoteLeft className="text-4xl xl:text-6xl text-white/20 mx-auto md:mx-0" />
 								</div>
