@@ -9,6 +9,7 @@ const nextConfig = {
 	i18n: {
 		defaultLocale: 'el',
 		locales: ['el', 'ru', 'en'],
+		localeDetection: false,
 	},
 	compress: true,
 };
