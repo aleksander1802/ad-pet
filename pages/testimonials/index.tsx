@@ -1,7 +1,7 @@
 import TestimonialSlider from '@/components/TestimonialSlider';
 import { fadeIn } from '@/variants';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 const Testimonials = () => {
 	const { t } = useTranslation('testimonials');
@@ -32,5 +32,11 @@ const Testimonials = () => {
 		</div>
 	);
 };
+
+// export const getServerSideProps = async ({ locale }: { locale: string }) => ({
+// 	props: {
+// 		...(await serverSideTranslations(locale, ['common', 'testimonials'])),
+// 	},
+// });
 
 export default Testimonials;

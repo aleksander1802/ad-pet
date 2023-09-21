@@ -38,7 +38,7 @@ const LangSwitcher = memo(() => {
 		>
 			{currentLanguage === 'el' && (
 				<Image
-					src={'/fishmania/greece.png'}
+					src={'/greece.png'}
 					alt="el"
 					width={width}
 					height={height}
@@ -46,7 +46,7 @@ const LangSwitcher = memo(() => {
 			)}
 			{currentLanguage === 'ru' && (
 				<Image
-					src={'/fishmania/russia.png'}
+					src={'/russia.png'}
 					alt="ru"
 					width={width}
 					height={height}
@@ -54,7 +54,7 @@ const LangSwitcher = memo(() => {
 			)}
 			{currentLanguage === 'en' && (
 				<Image
-					src={'/fishmania/united-kingdom.png'}
+					src={'/united-kingdom.png'}
 					alt="en"
 					width={width}
 					height={height}

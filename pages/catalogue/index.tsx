@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 import { AiFillCloseSquare } from 'react-icons/ai';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 interface ICatalogueList {
 	name: TCategory;
@@ -22,23 +22,23 @@ const Catalogue = () => {
 	const catalogueList: ICatalogueList[] = [
 		{
 			name: 'crustaceans',
-			img: '/fishmania/crustaceans.jpg',
+			img: '/crustaceans.jpg',
 		},
 		{
 			name: 'shellfish',
-			img: '/fishmania/shellfish.jpg',
+			img: '/shellfish.jpg',
 		},
 		{
 			name: 'cephalopods',
-			img: '/fishmania/cephalopods.jpg',
+			img: '/cephalopods.jpg',
 		},
 		{
 			name: 'sea water fish',
-			img: '/fishmania/seafish.jpg',
+			img: '/seafish.jpg',
 		},
 		{
 			name: 'fresh water fish',
-			img: '/fishmania/freshfish.jpg',
+			img: '/freshfish.jpg',
 		},
 	];
 

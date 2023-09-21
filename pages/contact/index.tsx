@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { BsEnvelope } from 'react-icons/bs';
 import { FaViber, FaWhatsapp } from 'react-icons/fa';
 import { fadeIn } from '@/variants';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 const Contact = () => {
 	const { t } = useTranslation('contacts');

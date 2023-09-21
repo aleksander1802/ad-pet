@@ -40,7 +40,7 @@ const Home = () => {
 						className="mb-1"
 					>
 						<Image
-							src="/fishmania/fish2.png"
+							src="/fish2.png"
 							width={width || 300}
 							height={height || 300}
 							alt="logo"
@@ -67,7 +67,7 @@ const Home = () => {
 								POZIDIS PORFYRIOS
 							</span>
 							<Image
-								src="/fishmania/trade.png"
+								src="/trade.png"
 								width={tradeWidth || 300}
 								height={height || 300}
 								alt="logo"

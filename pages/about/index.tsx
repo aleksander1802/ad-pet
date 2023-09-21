@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import CountUp from 'react-countup';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 const About = () => {
 	const { t } = useTranslation('about');

@@ -5,21 +5,21 @@ import Image from 'next/image';
 
 const testimonialData = [
 	{
-		image: '/fishmania/t-avt-1.jpg',
+		image: '/t-avt-1.jpg',
 		name: 'Barsik Smith',
 		position: 'Pet',
 		message:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
 	},
 	{
-		image: '/fishmania/t-avt-2.jpg',
+		image: '/t-avt-2.jpg',
 		name: 'Satoru Gojo',
 		position: 'Master',
 		message:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
 	},
 	{
-		image: '/fishmania/t-avt-3.jpg',
+		image: '/t-avt-3.jpg',
 		name: 'Check Balance',
 		position: 'Customer',
 		message:

@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 @import url(swiper/swiper-bundle.css);
-@import url('/fishmania/public/fonts/MOTHEM_Black.woff2');
-@import url('/fishmania/public/fonts/Throwback-Regular.woff2');
-@import url('/fishmania/public/fonts/GraphiquePro.woff2');
+@import url('/public/fonts/MOTHEM_Black.woff2');
+@import url('/public/fonts/Throwback-Regular.woff2');
+@import url('/public/fonts/GraphiquePro.woff2');
 
 @font-face {
 	font-family: 'Mothem';

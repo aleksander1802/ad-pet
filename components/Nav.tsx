@@ -66,8 +66,8 @@ const Nav = () => {
 								link.path === pathname && 'text-accent'
 							} relative flex items-center group hover:text-accent transition-all duration-300 font-semibold`}
 							href={link.path}
-							passHref
 							key={index}
+							passHref
 							locale={false}
 						>
 							{windowWidth > minWidth ? t(link.name) : link.icon}

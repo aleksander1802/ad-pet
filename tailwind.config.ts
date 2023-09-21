@@ -27,10 +27,10 @@ const config: Config = {
 				accent: '#F13024',
 			},
 			backgroundImage: {
-				wave: 'url("/fishmania/wave.png")',
-				back: 'url("/fishmania/bg.jpg")',
-				site: 'url("/fishmania/site-bg.svg")',
-				fishfeat: 'url("/fishmania/fish_feat.png")',
+				wave: 'url("/wave.png")',
+				back: 'url("/bg.jpg")',
+				site: 'url("/site-bg.svg")',
+				fishfeat: 'url("/fish_feat.png")',
 			},
 			animation: {
 				'spin-slow': 'spin 6s linear infinite',
