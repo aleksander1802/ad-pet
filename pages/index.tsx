@@ -10,7 +10,7 @@ const Home = () => {
 	const tradeWidth = 550;
 
 	const initial = 1920;
-	const minWidth = 1199;
+	const minWidth = 1200;
 	const [windowWidth, setWindowWidth] = useState<number>(initial);
 
 	useEffect(() => {
