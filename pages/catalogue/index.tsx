@@ -43,8 +43,6 @@ const Catalogue = () => {
 	];
 
 	const handleCategoryClick = (item: TCategory) => {
-		console.log(item);
-
 		setVisibility(true);
 		setCategory(item);
 	};
