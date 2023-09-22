@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { AnimatePresence, motion } from 'framer-motion';
 import '../styles/globals.css';
 import Transition from '@/components/Transition';
-
 import { appWithI18Next } from 'ni18n';
 import { ni18nConfig } from '../ni18n.config';
 

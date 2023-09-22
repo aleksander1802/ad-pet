@@ -196,13 +196,17 @@ const CatalogueSlider = ({ category }: { category: TCategory }) => {
 										width={
 											middleImageWidth ? smWidth : width
 										}
+										priority
 										height={height}
+										placeholder="blur"
+										blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkyAYAAHEAbR4vrCcAAAAASUVORK5CYII="
 										style={{
 											maxWidth: 'auto',
 											height,
 											objectFit: 'fill',
 										}}
 									/>
+
 									<div className="max-sm:hidden flex flex-col sm:w-[300px] xl:w-[350px] xl2:w-[500px]  xl:text-xl xl2:text-2xl sm:text-base justify-center font-lg gap-4 bg-primary/40 px-2 py-2">
 										<div className="font-extrabold text-center">
 											Product details

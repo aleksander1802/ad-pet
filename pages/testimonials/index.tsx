@@ -17,7 +17,7 @@ const Testimonials = () => {
 						className="h2 mb-8 xl:mb-0"
 					>
 						{t('What clients')}{' '}
-						<span className="text-accent">{t("say")}.</span>
+						<span className="text-accent">{t('say')}.</span>
 					</motion.h2>
 					<motion.div
 						variants={fadeIn('up', 0.4)}
@@ -32,11 +32,5 @@ const Testimonials = () => {
 		</div>
 	);
 };
-
-// export const getServerSideProps = async ({ locale }: { locale: string }) => ({
-// 	props: {
-// 		...(await serverSideTranslations(locale, ['common', 'testimonials'])),
-// 	},
-// });
 
 export default Testimonials;
