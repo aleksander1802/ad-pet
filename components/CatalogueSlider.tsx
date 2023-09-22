@@ -197,7 +197,6 @@ const CatalogueSlider = ({ category }: { category: TCategory }) => {
 											middleImageWidth ? smWidth : width
 										}
 										height={height}
-										priority
 										style={{
 											maxWidth: 'auto',
 											height,
