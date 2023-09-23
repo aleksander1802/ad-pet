@@ -3,11 +3,11 @@ import { fadeIn } from '@/variants';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
-import { loadTranslations } from 'ni18n';
 import { AiFillCloseSquare } from 'react-icons/ai';
 import { useTranslation } from 'next-i18next';
-import { ni18nConfig } from '../../ni18n.config';
-import { GetStaticProps } from 'next';
+// import { loadTranslations } from 'ni18n';
+// import { ni18nConfig } from '../../ni18n.config';
+// import { GetServerSideProps } from 'next';
 
 interface ICatalogueList {
 	name: TCategory;
@@ -136,15 +136,15 @@ const Catalogue = () => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async (props) => {
-	return {
-		props: {
-			...(await loadTranslations(ni18nConfig, props.locale, [
-				'common',
-				'products',
-			])),
-		},
-	};
-};
+// export const getServerSideProps: GetServerSideProps = async (props) => {
+// 	return {
+// 		props: {
+// 			...(await loadTranslations(ni18nConfig, props.locale, [
+// 				'common',
+// 				'products',
+// 			])),
+// 		},
+// 	};
+// };
 
 export default Catalogue;
