@@ -137,19 +137,14 @@ const Catalogue = () => {
 };
 
 export const getStaticProps: GetStaticProps = async (props) => {
-	const response = await fetch('fishmania.vercel.app/catalogue');
-
-	const data = await response.json();
-
 	return {
-		props: {
-			...(await loadTranslations(ni18nConfig, props.locale, [
-				'common',
-				'products',
-			])),
-			data,
-		},
-	};
-};
-
+	  props: {
+		...(await loadTranslations(ni18nConfig, props.locale, [
+		  'home',
+		  'translation',
+		])),
+	  },
+	}
+  }
+  
 export default Catalogue;
