@@ -140,8 +140,8 @@ export const getStaticProps: GetStaticProps = async (props) => {
 	return {
 	  props: {
 		...(await loadTranslations(ni18nConfig, props.locale, [
-		  'home',
-		  'translation',
+		  'common',
+		  'products',
 		])),
 	  },
 	}
