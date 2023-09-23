@@ -33,7 +33,7 @@ export const navData = [
 ];
 
 const Nav = () => {
-	const { t } = useTranslation();
+	const { t } = useTranslation('common');
 	const router = useRouter();
 	const pathname = router.pathname;
 

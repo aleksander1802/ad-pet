@@ -3,7 +3,7 @@ import { memo, useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const LangSwitcher = memo(() => {
-	const { i18n } = useTranslation();
+	const { i18n } = useTranslation('common');
 
 	const defaultLang = 'el';
 	const [currentLanguage, setCurrentLanguage] = useState(defaultLang);
