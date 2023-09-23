@@ -37,7 +37,7 @@ const Home = () => {
 						initial="hidden"
 						animate="show"
 						exit="hidden"
-						className="mb-1"
+						
 					>
 						<Image
 							src="/fish2.png"
@@ -46,7 +46,7 @@ const Home = () => {
 							alt="logo"
 							priority
 							style={{
-								width: windowWidth < minWidth ? 200 : width,
+								width: windowWidth < minWidth ? 130 : width,
 								height: 'auto',
 							}}
 						/>
