@@ -133,4 +133,20 @@ const Catalogue = () => {
 	);
 };
 
+
+export async function getStaticProps() {
+ 
+   
+    const response = await fetch(
+        'fishmania.vercel.app/catalogue');
+ 
+    
+    const data = await response.json();
+ 
+    
+    return {
+        props: data,
+    };
+}
+
 export default Catalogue;
