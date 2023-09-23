@@ -17,7 +17,7 @@ const config: Config = {
 			md: '768px',
 			lg: '960px',
 			xl: '1200px',
-			xl2: '1900px'
+			xl2: '1900px',
 		},
 		extend: {
 			colors: {
@@ -30,8 +30,9 @@ const config: Config = {
 				wave: 'url("/wave.png")',
 				back: 'url("/bg.jpg")',
 				site: 'url("/site-bg.svg")',
-				fishfeat: 'url("/fish_feat.png")',
+				fishfeat: 'url("/fish_feat1.png")',
 			},
+			
 			animation: {
 				'spin-slow': 'spin 6s linear infinite',
 			},
