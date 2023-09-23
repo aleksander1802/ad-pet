@@ -3,6 +3,9 @@ import { fadeIn } from '@/variants';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import ProductsBtn from '@/components/ProductsBtn';
+import { ni18nConfig } from '../ni18n.config';
+import { GetStaticProps } from 'next';
+import { loadTranslations } from 'ni18n';
 
 const Home = () => {
 	const height = 300;
@@ -37,7 +40,6 @@ const Home = () => {
 						initial="hidden"
 						animate="show"
 						exit="hidden"
-						
 					>
 						<Image
 							src="/fish2.png"
@@ -119,6 +121,21 @@ const Home = () => {
 			</div>
 		</div>
 	);
+};
+
+export const getStaticProps: GetStaticProps = async (props) => {
+	return {
+		props: {
+			...(await loadTranslations(ni18nConfig, props.locale, [
+				'common',
+				'products',
+				'about',
+				'delivery',
+				'testimonials',
+				'contacts',
+			])),
+		},
+	};
 };
 
 export default Home;

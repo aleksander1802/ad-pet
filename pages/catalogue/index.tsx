@@ -138,13 +138,13 @@ const Catalogue = () => {
 
 export const getStaticProps: GetStaticProps = async (props) => {
 	return {
-	  props: {
-		...(await loadTranslations(ni18nConfig, props.locale, [
-		  'common',
-		  'products',
-		])),
-	  },
-	}
-  }
-  
+		props: {
+			...(await loadTranslations(ni18nConfig, props.locale, [
+				'common',
+				'products',
+			])),
+		},
+	};
+};
+
 export default Catalogue;
