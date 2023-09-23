@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'next-i18next';
 
 export type TCategory =
 	| 'crustaceans'
@@ -15,142 +16,141 @@ const catalogueSlides = {
 	crustaceans: [
 		{
 			name: 'Blue crab',
-			img: '/fishmania/blue-crab.jpg',
+			img: '/blue-crab.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live, frozen',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'Rock crab',
-			img: '/fishmania/rock-crab.jpg',
+			img: '/rock-crab.jpg',
 			habitat: 'Northeast Atlantic',
 			form: 'Frozen',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'King crab legs',
-			img: '/fishmania/king-crab-legs.jpg',
+			img: '/king-crab-legs.jpg',
 			habitat: 'Northeast Atlantic',
 			form: 'Frozen',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'Langoustine',
-			img: '/fishmania/langoustine.jpg',
+			img: '/langoustine.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live, frozen',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'Shrimp',
-			img: '/fishmania/krevetki.jpg',
+			img: '/krevetki.jpg',
 			form: 'Live, fresh, frozen',
 			habitat: 'Mediterranean Sea',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 	],
 	shellfish: [
 		{
 			name: 'warty venus',
-			img: '/fishmania/warty-venus.jpg',
+			img: '/warty-venus.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
-			name: 'brown-venus-shell',
-			img: '/fishmania/brown-venus-shell.jpg',
+			name: 'brown venus shell',
+			img: '/brown-venus-shell.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'mussel',
-			img: '/fishmania/mussel.jpg',
+			img: '/mussel.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live, frozen',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 	],
 	cephalopods: [
 		{
 			name: 'octopus',
-			img: '/fishmania/octopus.jpg',
+			img: '/octopus.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live, frozen',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'cuttlefish',
-			img: '/fishmania/cuttlefish.jpg',
+			img: '/cuttlefish.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live, frozen',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'squid',
-			img: '/fishmania/squid.jpg',
+			img: '/squid.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live, frozen',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 	],
 	'sea water fish': [
 		{
 			name: 'seabass',
-			img: '/fishmania/seabass.jpg',
+			img: '/seabass.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live, frozen',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'gilthead seabream',
-			img: '/fishmania/gilthead-seabream.jpg',
+			img: '/gilthead-seabream.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'common seabream',
-			img: '/fishmania/common-seabream.jpg',
+			img: '/common-seabream.jpg',
 			habitat: 'Mediterranean Sea',
 			form: 'Live, frozen',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 	],
 	'fresh water fish': [
 		{
 			name: 'pike',
-			img: '/fishmania/pike.jpg',
+			img: '/pike.jpg',
 			habitat: 'Greece',
 			form: 'Live',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'nile perch',
-			img: '/fishmania/nile-perch.jpg',
+			img: '/nile-perch.jpg',
 			habitat: 'Greece',
 			form: 'Live',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 		{
 			name: 'bighead',
-			img: '/fishmania/bighead.jpg',
+			img: '/bighead.jpg',
 			habitat: 'Greece',
 			form: 'Live',
-			price: 'Contractual ',
+			price: 'Contractual',
 		},
 	],
 };
 
 const CatalogueSlider = ({ category }: { category: TCategory }) => {
 	const array = category && catalogueSlides[category];
+	const { t } = useTranslation('products');
 
 	const width = 500;
 	const height = 500;
-
 	const initial = 1920;
-
 	const smWidth = 300;
 	const smMinWidth = 640;
 	const lgMinWidth = 960;
@@ -196,41 +196,52 @@ const CatalogueSlider = ({ category }: { category: TCategory }) => {
 										width={
 											middleImageWidth ? smWidth : width
 										}
-										height={height}
 										priority
+										height={height}
+										placeholder="blur"
+										blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkyAYAAHEAbR4vrCcAAAAASUVORK5CYII="
 										style={{
 											maxWidth: 'auto',
 											height,
 											objectFit: 'fill',
 										}}
 									/>
+
 									<div className="max-sm:hidden flex flex-col sm:w-[300px] xl:w-[350px] xl2:w-[500px]  xl:text-xl xl2:text-2xl sm:text-base justify-center font-lg gap-4 bg-primary/40 px-2 py-2">
 										<div className="font-extrabold text-center">
-											Product details
+											{t('Product details')}
 										</div>
-										<div className="flex justify-between capitalize">
+										<div className="flex justify-between capitalize items-center">
 											<span className="text-accent sm:text-base xl2:text-xl">
-												Name:{' '}
+												{t('Name')}:{' '}
 											</span>
-											{item.name}
+											<span className="text-right">
+												{t(item.name)}
+											</span>
 										</div>
-										<div className="flex justify-between">
+										<div className="flex justify-between items-center">
 											<span className="text-accent sm:text-base xl2:text-xl">
-												Habitat:{' '}
+												{t('Origin')}:{' '}
 											</span>
-											{item.habitat}
+											<span className="text-right">
+												{t(item.habitat)}
+											</span>
 										</div>
-										<div className="flex justify-between">
+										<div className="flex justify-between items-center">
 											<span className="text-accent sm:text-base xl2:text-xl">
-												Form: {''}
+												{t('Form')}: {''}
 											</span>
-											{item.form}
+											<span className="text-right">
+												{t(item.form)}
+											</span>
 										</div>
-										<div className="flex justify-between">
+										<div className="flex justify-between items-center">
 											<span className="text-accent sm:text-base xl2:text-xl">
-												Price: {''}
+												{t('Price')}: {''}
 											</span>
-											{item.price}
+											<span className="text-right">
+												{t(item.price)}
+											</span>
 										</div>
 									</div>
 								</div>

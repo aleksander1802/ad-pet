@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 import { AiFillCloseSquare } from 'react-icons/ai';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 interface ICatalogueList {
 	name: TCategory;
@@ -22,29 +22,27 @@ const Catalogue = () => {
 	const catalogueList: ICatalogueList[] = [
 		{
 			name: 'crustaceans',
-			img: '/fishmania/crustaceans.jpg',
+			img: '/crustaceans.jpg',
 		},
 		{
 			name: 'shellfish',
-			img: '/fishmania/shellfish.jpg',
+			img: '/shellfish.jpg',
 		},
 		{
 			name: 'cephalopods',
-			img: '/fishmania/cephalopods.jpg',
+			img: '/cephalopods.jpg',
 		},
 		{
 			name: 'sea water fish',
-			img: '/fishmania/seafish.jpg',
+			img: '/seafish.jpg',
 		},
 		{
 			name: 'fresh water fish',
-			img: '/fishmania/freshfish.jpg',
+			img: '/freshfish.jpg',
 		},
 	];
 
 	const handleCategoryClick = (item: TCategory) => {
-		console.log(item);
-
 		setVisibility(true);
 		setCategory(item);
 	};
@@ -53,6 +51,38 @@ const Catalogue = () => {
 		setVisibility(false);
 		setCategory(null);
 	};
+
+	const data = catalogueList.map((item) => {
+		return (
+			<li
+				key={item.name}
+				className="flex cursor-pointer text-[0px] hover:text-[38px]"
+				onClick={() => handleCategoryClick(item.name)}
+			>
+				<Image
+					src={item.img}
+					alt={item.name || ''}
+					width={width}
+					height={height}
+					quality={100}
+					title={item.name || ''}
+					priority
+					placeholder="blur"
+					blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkyAYAAHEAbR4vrCcAAAAASUVORK5CYII="
+					style={{
+						maxWidth: '100%',
+						height: 'auto',
+						objectFit: 'cover',
+					}}
+				/>
+				<div
+					className={`absolute max-w-[${width}px] max-sm:hidden top-2/4 -translate-y-2/4 bg-primary/70 px-2 capitalize`}
+				>
+					{t(item.name as string)}
+				</div>
+			</li>
+		);
+	});
 
 	return (
 		<div className="h-full bg-fishfeat bg-cover bg-no-repeat transition-all">
@@ -75,38 +105,7 @@ const Catalogue = () => {
 						exit="hidden"
 						className="list-none h-full w-full flex flex-row justify-center px-1 gap-1 xl:gap-4 xl:w-3/4 xl2:w-full xl:mx-auto "
 					>
-						{!visibility &&
-							catalogueList.map((item) => {
-								return (
-									<li
-										key={item.name}
-										className="flex cursor-pointer text-[0px] hover:text-[38px]"
-										onClick={() =>
-											handleCategoryClick(item.name)
-										}
-									>
-										<Image
-											src={item.img}
-											alt={item.name || ''}
-											width={width}
-											height={height}
-											quality={100}
-											title={item.name || ''}
-											priority
-											style={{
-												maxWidth: '100%',
-												height: 'auto',
-												objectFit: 'cover',
-											}}
-										/>
-										<div
-											className={`absolute max-w-[${width}px] max-sm:hidden top-2/4 -translate-y-2/4 bg-primary/70 px-2 capitalize `}
-										>
-											{t(item.name as string)}
-										</div>
-									</li>
-								);
-							})}
+						{!visibility && data}
 
 						{visibility && (
 							<>

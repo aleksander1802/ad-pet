@@ -1,7 +1,7 @@
 import TestimonialSlider from '@/components/TestimonialSlider';
 import { fadeIn } from '@/variants';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 const Testimonials = () => {
 	const { t } = useTranslation('testimonials');
@@ -14,10 +14,10 @@ const Testimonials = () => {
 						initial="hidden"
 						animate="show"
 						exit="hidden"
-						className="h2 mb-8 xl:mb-0"
+						className="h2 mb-8 xl:mb-0 max-sm:mb-2"
 					>
 						{t('What clients')}{' '}
-						<span className="text-accent">{t("say")}.</span>
+						<span className="text-accent">{t('say')}.</span>
 					</motion.h2>
 					<motion.div
 						variants={fadeIn('up', 0.4)}

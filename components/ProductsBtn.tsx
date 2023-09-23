@@ -8,10 +8,12 @@ const ProductsBtn = () => {
 		<div className="mx-auto xl:mx-0 ">
 			<Link
 				href={'/catalogue'}
+				passHref
+				locale={false}
 				className="relative w-[185px] h-[185px] flex justify-center items-center bg-circleStar bg-cover bg-center bg-no-repeat group z-50 "
 			>
 				<Image
-					src={'/fishmania/rounded-text.png'}
+					src={'/rounded-text.png'}
 					width={261}
 					height={248}
 					alt="works"

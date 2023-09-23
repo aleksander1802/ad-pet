@@ -37,16 +37,16 @@ const Home = () => {
 						initial="hidden"
 						animate="show"
 						exit="hidden"
-						className="mb-1"
+						
 					>
 						<Image
-							src="/fishmania/fish2.png"
+							src="/fish2.png"
 							width={width || 300}
 							height={height || 300}
 							alt="logo"
 							priority
 							style={{
-								width: windowWidth < minWidth ? 200 : width,
+								width: windowWidth < minWidth ? 130 : width,
 								height: 'auto',
 							}}
 						/>
@@ -67,7 +67,7 @@ const Home = () => {
 								POZIDIS PORFYRIOS
 							</span>
 							<Image
-								src="/fishmania/trade.png"
+								src="/trade.png"
 								width={tradeWidth || 300}
 								height={height || 300}
 								alt="logo"
