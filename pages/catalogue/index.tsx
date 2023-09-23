@@ -3,8 +3,11 @@ import { fadeIn } from '@/variants';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
+import { loadTranslations } from 'ni18n';
 import { AiFillCloseSquare } from 'react-icons/ai';
 import { useTranslation } from 'next-i18next';
+import { ni18nConfig } from '../../ni18n.config';
+import { GetStaticProps } from 'next';
 
 interface ICatalogueList {
 	name: TCategory;
@@ -133,20 +136,20 @@ const Catalogue = () => {
 	);
 };
 
+export const getStaticProps: GetStaticProps = async (props) => {
+	const response = await fetch('fishmania.vercel.app/catalogue');
 
-export async function getStaticProps() {
- 
-   
-    const response = await fetch(
-        'fishmania.vercel.app/catalogue');
- 
-    
-    const data = await response.json();
- 
-    
-    return {
-        props: data,
-    };
-}
+	const data = await response.json();
+
+	return {
+		props: {
+			...(await loadTranslations(ni18nConfig, props.locale, [
+				'common',
+				'products',
+			])),
+			data,
+		},
+	};
+};
 
 export default Catalogue;
