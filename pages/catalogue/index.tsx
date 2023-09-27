@@ -68,7 +68,7 @@ const Catalogue = () => {
 					title={item.name || ''}
 					priority
 					placeholder="blur"
-					blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkyAYAAHEAbR4vrCcAAAAASUVORK5CYII="
+					blurDataURL={item.img}
 					style={{
 						maxWidth: '100%',
 						height: 'auto',
@@ -109,13 +109,7 @@ const Catalogue = () => {
 
 						{visibility && (
 							<>
-								<motion.div
-									variants={fadeIn('left', 0)}
-									initial="hidden"
-									animate="show"
-									exit="hidden"
-									className="container max-w-[1200px] h-full flex justify-center relative p-0"
-								>
+								<div className="container max-w-[1200px] h-full flex justify-center relative p-0">
 									<CatalogueSlider category={category} />
 									<div
 										className="absolute top-0 right-0 text-4xl cursor-pointer z-20"
@@ -123,7 +117,7 @@ const Catalogue = () => {
 									>
 										<AiFillCloseSquare className="hover:text-accent transition-all duration-300 max-sm:text-accent max-sm:hover:text-light" />
 									</div>
-								</motion.div>
+								</div>
 							</>
 						)}
 					</motion.ul>

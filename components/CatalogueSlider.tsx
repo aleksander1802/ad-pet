@@ -147,32 +147,8 @@ const catalogueSlides = {
 const CatalogueSlider = ({ category }: { category: TCategory }) => {
 	const array = category && catalogueSlides[category];
 	const { t } = useTranslation('products');
-
 	const width = 500;
 	const height = 500;
-	const initial = 1920;
-	const smWidth = 300;
-	const smMinWidth = 640;
-	const lgMinWidth = 960;
-	const [windowWidth, setWindowWidth] = useState<number>(initial);
-
-	const middleImageWidth =
-		windowWidth >= smMinWidth && windowWidth <= lgMinWidth;
-
-	useEffect(() => {
-		const handleResize = () => {
-			const screenHeight = window.screen.width;
-			setWindowWidth(screenHeight);
-		};
-
-		window.addEventListener('resize', handleResize);
-
-		handleResize();
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
 
 	return (
 		<Swiper
@@ -190,22 +166,25 @@ const CatalogueSlider = ({ category }: { category: TCategory }) => {
 						<SwiperSlide key={index}>
 							<div className="w-full h-full flex justify-center items-center font-semibold">
 								<div className="flex justify-center">
-									<Image
-										src={item.img}
-										alt={item.name}
-										width={
-											middleImageWidth ? smWidth : width
-										}
-										priority
-										height={height}
-										placeholder="blur"
-										blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkyAYAAHEAbR4vrCcAAAAASUVORK5CYII="
-										style={{
-											maxWidth: 'auto',
-											height,
-											objectFit: 'fill',
-										}}
-									/>
+									<div
+										className={`max-sm:w-[400px] w-[500px] h-[500px]`}
+									>
+										<Image
+											src={item.img}
+											alt={item.name}
+											width={width}
+											height={height}
+											priority
+											placeholder="blur"
+											blurDataURL={item.img}
+											className="w-full h-[500px] "
+											style={{
+												width: '100%',
+												height,
+												objectFit: 'fill',
+											}}
+										/>
+									</div>
 
 									<div className="max-sm:hidden flex flex-col sm:w-[300px] xl:w-[350px] xl2:w-[500px]  xl:text-xl xl2:text-2xl sm:text-base justify-center font-lg gap-4 bg-primary/40 px-2 py-2">
 										<div className="font-extrabold text-center">
