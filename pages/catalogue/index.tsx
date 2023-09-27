@@ -19,28 +19,31 @@ const Catalogue = memo(() => {
 	const width = 300;
 	const height = 500;
 
-	const catalogueList: ICatalogueList[] = useMemo(() => [
-		{
-		  name: 'crustaceans',
-		  img: '/crustaceans.jpg',
-		},
-		{
-		  name: 'shellfish',
-		  img: '/shellfish.jpg',
-		},
-		{
-		  name: 'cephalopods',
-		  img: '/cephalopods.jpg',
-		},
-		{
-		  name: 'sea water fish',
-		  img: '/seafish.jpg',
-		},
-		{
-		  name: 'fresh water fish',
-		  img: '/freshfish.jpg',
-		},
-	  ], []);
+	const catalogueList: ICatalogueList[] = useMemo(
+		() => [
+			{
+				name: 'crustaceans',
+				img: '/crustaceans.jpg',
+			},
+			{
+				name: 'shellfish',
+				img: '/shellfish.jpg',
+			},
+			{
+				name: 'cephalopods',
+				img: '/cephalopods.jpg',
+			},
+			{
+				name: 'sea water fish',
+				img: '/seafish.jpg',
+			},
+			{
+				name: 'fresh water fish',
+				img: '/freshfish.jpg',
+			},
+		],
+		[],
+	);
 	const handleCategoryClick = (item: TCategory) => {
 		setVisibility(true);
 		setCategory(item);
@@ -51,40 +54,41 @@ const Catalogue = memo(() => {
 		setCategory(null);
 	};
 
-	const data = useMemo(() =>
-    catalogueList.map((item) => {
-      return (
-        <li
-          key={item.name}
-          className="flex cursor-pointer text-[0px] hover:text-[38px]"
-          onClick={() => handleCategoryClick(item.name)}
-        >
-          <Image
-            src={item.img}
-            alt={item.name || ''}
-            width={width}
-            height={height}
-            quality={100}
-            title={item.name || ''}
-            priority
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkyAYAAHEAbR4vrCcAAAAASUVORK5CYII="
-            style={{
-              maxWidth: '100%',
-              height: 'auto',
-              objectFit: 'cover',
-            }}
-          />
-          <div
-            className={`absolute max-w-[${width}px] max-sm:hidden top-2/4 -translate-y-2/4 bg-primary/70 px-2 capitalize`}
-          >
-            {t(item.name as string)}
-          </div>
-        </li>
-      );
-    }),
-    [catalogueList, t, width, height]
-  );
+	const data = useMemo(
+		() =>
+			catalogueList.map((item) => {
+				return (
+					<li
+						key={item.name}
+						className="flex cursor-pointer text-[0px] hover:text-[38px]"
+						onClick={() => handleCategoryClick(item.name)}
+					>
+						<Image
+							src={item.img}
+							alt={item.name || ''}
+							width={width}
+							height={height}
+							quality={100}
+							title={item.name || ''}
+							priority
+							placeholder="blur"
+							blurDataURL={item.img}
+							style={{
+								maxWidth: '100%',
+								height: 'auto',
+								objectFit: 'cover',
+							}}
+						/>
+						<div
+							className={`absolute max-w-[${width}px] max-sm:hidden top-2/4 -translate-y-2/4 bg-primary/70 px-2 capitalize`}
+						>
+							{t(item.name as string)}
+						</div>
+					</li>
+				);
+			}),
+		[catalogueList, t, width, height],
+	);
 
 	return (
 		<div className="h-full bg-fishfeat bg-cover bg-no-repeat transition-all">

@@ -199,7 +199,7 @@ const CatalogueSlider = ({ category }: { category: TCategory }) => {
 										priority
 										height={height}
 										placeholder="blur"
-										blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkyAYAAHEAbR4vrCcAAAAASUVORK5CYII="
+										blurDataURL={item.img}
 										style={{
 											maxWidth: 'auto',
 											height,
