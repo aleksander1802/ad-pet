@@ -1,8 +1,8 @@
+import React, { useState, memo, useMemo } from 'react';
 import CatalogueSlider, { TCategory } from '@/components/CatalogueSlider';
 import { fadeIn } from '@/variants';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
 import { AiFillCloseSquare } from 'react-icons/ai';
 import { useTranslation } from 'next-i18next';
 
@@ -11,7 +11,7 @@ interface ICatalogueList {
 	img: string;
 }
 
-const Catalogue = () => {
+const Catalogue = memo(() => {
 	const [category, setCategory] = useState<TCategory>(null);
 	const [visibility, setVisibility] = useState(false);
 	const { t } = useTranslation('products');
@@ -19,29 +19,31 @@ const Catalogue = () => {
 	const width = 300;
 	const height = 500;
 
-	const catalogueList: ICatalogueList[] = [
-		{
-			name: 'crustaceans',
-			img: '/crustaceans.jpg',
-		},
-		{
-			name: 'shellfish',
-			img: '/shellfish.jpg',
-		},
-		{
-			name: 'cephalopods',
-			img: '/cephalopods.jpg',
-		},
-		{
-			name: 'sea water fish',
-			img: '/seafish.jpg',
-		},
-		{
-			name: 'fresh water fish',
-			img: '/freshfish.jpg',
-		},
-	];
-
+	const catalogueList: ICatalogueList[] = useMemo(
+		() => [
+			{
+				name: 'crustaceans',
+				img: '/crustaceans.jpg',
+			},
+			{
+				name: 'shellfish',
+				img: '/shellfish.jpg',
+			},
+			{
+				name: 'cephalopods',
+				img: '/cephalopods.jpg',
+			},
+			{
+				name: 'sea water fish',
+				img: '/seafish.jpg',
+			},
+			{
+				name: 'fresh water fish',
+				img: '/freshfish.jpg',
+			},
+		],
+		[],
+	);
 	const handleCategoryClick = (item: TCategory) => {
 		setVisibility(true);
 		setCategory(item);
@@ -52,37 +54,41 @@ const Catalogue = () => {
 		setCategory(null);
 	};
 
-	const data = catalogueList.map((item) => {
-		return (
-			<li
-				key={item.name}
-				className="flex cursor-pointer text-[0px] hover:text-[38px]"
-				onClick={() => handleCategoryClick(item.name)}
-			>
-				<Image
-					src={item.img}
-					alt={item.name || ''}
-					width={width}
-					height={height}
-					quality={100}
-					title={item.name || ''}
-					priority
-					placeholder="blur"
-					blurDataURL={item.img}
-					style={{
-						maxWidth: '100%',
-						height: 'auto',
-						objectFit: 'cover',
-					}}
-				/>
-				<div
-					className={`absolute max-w-[${width}px] max-sm:hidden top-2/4 -translate-y-2/4 bg-primary/70 px-2 capitalize`}
-				>
-					{t(item.name as string)}
-				</div>
-			</li>
-		);
-	});
+	const data = useMemo(
+		() =>
+			catalogueList.map((item) => {
+				return (
+					<li
+						key={item.name}
+						className="flex cursor-pointer text-[0px] hover:text-[38px]"
+						onClick={() => handleCategoryClick(item.name)}
+					>
+						<Image
+							src={item.img}
+							alt={item.name || ''}
+							width={width}
+							height={height}
+							quality={100}
+							title={item.name || ''}
+							priority
+							placeholder="blur"
+							blurDataURL={item.img}
+							style={{
+								maxWidth: '100%',
+								height: 'auto',
+								objectFit: 'cover',
+							}}
+						/>
+						<div
+							className={`absolute max-w-[${width}px] max-sm:hidden top-2/4 -translate-y-2/4 bg-primary/70 px-2 capitalize`}
+						>
+							{t(item.name as string)}
+						</div>
+					</li>
+				);
+			}),
+		[catalogueList, t, width, height],
+	);
 
 	return (
 		<div className="h-full bg-fishfeat bg-cover bg-no-repeat transition-all">
@@ -97,34 +103,40 @@ const Catalogue = () => {
 					{t('Our')}{' '}
 					<span className="text-accent">{t('products')}.</span>
 				</motion.h2>
-				{
-					<motion.ul
-						variants={fadeIn('left', 0.2)}
-						initial="hidden"
-						animate="show"
-						exit="hidden"
-						className="list-none h-full w-full flex flex-row justify-center px-1 gap-1 xl:gap-4 xl:w-3/4 xl2:w-full xl:mx-auto "
-					>
-						{!visibility && data}
+				<motion.ul
+					variants={fadeIn('left', 0.2)}
+					initial="hidden"
+					animate="show"
+					exit="hidden"
+					className="list-none h-full w-full flex flex-row justify-center px-1 gap-1 xl:gap-4 xl:w-3/4 xl2:w-full xl:mx-auto "
+				>
+					{!visibility && data}
 
-						{visibility && (
-							<>
-								<div className="container max-w-[1200px] h-full flex justify-center relative p-0">
-									<CatalogueSlider category={category} />
-									<div
-										className="absolute top-0 right-0 text-4xl cursor-pointer z-20"
-										onClick={onCloseSlider}
-									>
-										<AiFillCloseSquare className="hover:text-accent transition-all duration-300 max-sm:text-accent max-sm:hover:text-light" />
-									</div>
+					{visibility && (
+						<>
+							<motion.div
+								variants={fadeIn('left', 0)}
+								initial="hidden"
+								animate="show"
+								exit="hidden"
+								className="container max-w-[1200px] h-full flex justify-center relative p-0"
+							>
+								<CatalogueSlider category={category} />
+								<div
+									className="absolute top-0 right-0 text-4xl cursor-pointer z-20"
+									onClick={onCloseSlider}
+								>
+									<AiFillCloseSquare className="hover:text-accent transition-all duration-300 max-sm:text-accent max-sm:hover:text-light" />
 								</div>
-							</>
-						)}
-					</motion.ul>
-				}
+							</motion.div>
+						</>
+					)}
+				</motion.ul>
 			</div>
 		</div>
 	);
-};
+});
+
+Catalogue.displayName = 'Catalogue';
 
 export default Catalogue;
